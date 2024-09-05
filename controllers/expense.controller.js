@@ -117,6 +117,7 @@ const getAllExpenses = asyncHandler(async (req, res, next) => {
       "amount",
       [sequelize.col("createdAt"), "ExpenseDate"],
     ],
+    order: [["createdAt", "DESC"]],
   });
   const MoneySpend = expenses.reduce(
     (acc, expense) => acc + parseFloat(expense.amount),
